@@ -23,7 +23,8 @@ while True:
     print("2. Create a new list")
     print("3. Deleting a list")
     print("4. Delete a task")
-    print("5. Quit the program")
+    print("5. Add a task to an existing list")
+    print("6. Quit the program")
     UserInput=int(input())
     
     if(UserInput==1):
@@ -95,11 +96,32 @@ while True:
             print("\n")
             print("Task succesfully deleted!")
             print("\n")
-
-        
-
-
+    
     if(UserInput==5):
+        print("What is the name of the list?")
+        ExistingListName = str(input())
+        print ("What's the name of the task?")
+        NewTaskName=str(input())
+        print("When do want this to be done by?(Month number)")
+        Month=int(input())
+        print("What date in the month?")
+        Day= int(input())
+        print("What year?")
+        Year=int(input())
+        print("What hour?")
+        Hour=int(input())
+        Date=datetime.datetime(Year, Month, Day, Hour)
+        print("What category would you like to place this in? ex: hw, science project, etc.")
+        Category= str(input())
+        print("How important is this task to finish? (High/moderate/low)")
+        PriorityLevel= str(input())
+        newTask= Task(Date, Category, PriorityLevel, NewTaskName)        
+        newTask.Add(ExistingListName)
+        print("\n")
+        print("Task Added to List: "+ ExistingListName)
+        print("\n")
+    
+    if(UserInput==6):
         print("Thanks for coming, see you next time!")
         quit()
-       
+    
